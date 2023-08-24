@@ -4,7 +4,7 @@
 
 코드 수정
 
-'''
+```
 // 수정전 코드
 import java.util.*;
 
@@ -28,13 +28,13 @@ class Solution {
         return answer - 1;
     }
 }
-'''
+```
 
 
 수정전 코드는 hash value에 1을 증가시켜 줄 때 키 값을 비교하여 있다면 1 증가 시키고 아니라면 그냥 hash에 put하게 하였는데
 getOrDefault를 사용하면 if else 문을 거치지 않고 value 값을 증가 시킬 수 있었다.
 
-'''
+```
 // 수정 후 코드
 import java.util.*;
 
@@ -53,6 +53,6 @@ class Solution {
         return answer - 1;
     }
 }
-'''
+```
 
 
