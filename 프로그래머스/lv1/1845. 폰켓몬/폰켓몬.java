@@ -3,20 +3,17 @@ import java.util.HashMap;
 class Solution {
     public int solution(int[] nums) {
 
-        HashMap<Integer, String> map = new HashMap<>();
-        int answer = 0;
+                HashMap<Integer, Integer> hm = new HashMap<>();
+        int possible = nums.length/2;
 
-        for (int num : nums) {
-            map.put(num, "0");
+        for (int i = 0; i < nums.length; i ++) {
+            hm.put(nums[i], i);
         }
-        int species = map.size();
 
-        if (species <= nums.length/2){
-            answer = species;
+        if (hm.size() <= possible) {
+            return hm.size();
         } else {
-            answer = nums.length/2;
+            return possible;
         }
-
-        return answer;
     }
 }
