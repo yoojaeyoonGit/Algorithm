@@ -2,22 +2,21 @@ import java.util.*;
 
 class Solution {
     public String solution(String[] participant, String[] completion) {
-       HashMap<String, Integer> hashMap = new HashMap<>();
+       HashMap<String, Integer> hm = new HashMap<>();
         String answer = "";
 
-        for (String part : participant){
-            hashMap.put(part, hashMap.getOrDefault(part, 0) + 1);
+        for (String player : participant) {
+            hm.put( player, hm.getOrDefault(player, 0) + 1);
         }
 
-        for (String comp : completion) {
-            hashMap.put(comp, hashMap.get(comp) -1);
+        for (String player : completion) {
+            hm.put(player, hm.get(player) - 1);
         }
 
-        for (String keySet : hashMap.keySet()) {
-            if (hashMap.get(keySet) == 1) {
-                answer = keySet;
+        for (String s : hm.keySet()) {
+            if (hm.get(s) == 1) {
+                answer = s;
             }
-
         }
         return answer;
     }
