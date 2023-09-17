@@ -2,20 +2,28 @@ import java.util.*;
 
 class Solution {
     public int[] solution(int[] progresses, int[] speeds) {
-        ArrayList<Integer> list = new ArrayList<>();
-        for (int i = 0; i < progresses.length; i++) {
-            list.add((int)Math.ceil((double) (100 - progresses[i]) / speeds[i]));
-        }
-        System.out.println(list);
-
         ArrayList<Integer> list2 = new ArrayList<>();
+        Queue<Integer> q = new LinkedList<>();
+
+        for (int i = 0; i < progresses.length; i++) {
+            int prg = (100 - progresses[i])/speeds[i];
+            if (prg * speeds[i] + progresses[i] < 100) {
+                prg += 1;
+            }
+            q.add(prg);
+        }
+
+        int x = q.poll();
         int sum = 1;
-        for (int i = 0; i < list.size() - 1; i++) {
-            if (list.get(i) >= list.get(i + 1)) {
+
+        while (!q.isEmpty()) {
+            if (x >= q.peek()) {
                 sum += 1;
+                q.poll();
             } else {
                 list2.add(sum);
                 sum = 1;
+                x = q.poll();
             }
         }
         list2.add(sum);
